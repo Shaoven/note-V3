@@ -1,0 +1,78 @@
+CreateGroup:
+  Path: "/v3/notesvr/set/notegroup"
+  must_key: [[{'key': 'groupId', 'code': 500}], [{'key': 'groupName', 'code': 500}]]
+  special: ['@', '#', '￥', '%', '……', '&', '*', '（', '；']
+
+CreateNote:
+  Path: "/v3/notesvr/set/notecontent"
+  must_key:
+    - - {'key': 'noteId', 'code': 500}
+    - - {'key': 'title', 'code': 500}
+    - - {'key': 'summary', 'code': 500}
+    - - {'key': 'body', 'code': 500}
+    - - {'key': 'localContentVersion', 'code': 500}
+    - - {'key': 'BodyType', 'code': 500}
+  special: ['@', '#', '￥', '%', '……', '&', '*', '（', '；']
+
+CreateNoteInfo:
+  Path: "/v3/notesvr/set/noteinfo"
+  must_key:
+    - - {'key': 'noteId', 'code': 500}
+  special: ['@', '#', '￥', '%', '……', '&', '*', '（', '；']
+
+DeleteGroup:
+  Path: "/v3/notesvr/delete/notegroup"
+  must_key:
+    - - {'key': 'groupId', 'code': 500}
+  special: ['@', '#', '￥', '%', '……', '&', '*', '（', '；']
+
+DeleteNote:
+  Path: "/v3/notesvr/delete"
+  must_key:
+    - - {'key': 'noteId', 'code': 500}
+  special: ['@', '#', '￥', '%', '……', '&', '*', '（', '；']
+
+EmptyRecycle:
+  Path: "/v3/notesvr/cleanrecyclebin"
+  must_key:
+    - - {'key': 'noteIds', 'code': 500}
+
+GetGroupList:
+  Path: "/v3/notesvr/get/notegroup"
+
+GetHomeNoteList:
+  Path: "/v3/notesvr/user/{userid}/home/startindex/{startindex}/rows/{rows}/notes"
+  special: ['@', '#', '￥', '%', '……', '&', '*', '（', '；']
+
+GetNoteBody:
+  Path: "/v3/notesvr/get/notebody"
+  must_key:
+    - - { 'key': 'noteIds', 'code': 500}
+
+GetRecycleNote:
+  Path: "/v3/notesvr/user/{userid}/invalid/startindex/{startindex}/rows/{rows}/notes"
+  must_key:
+    - - { 'key': 'userid', 'code': 500}
+    - - { 'key': 'startIndex', 'code': 500}
+    - - { 'key': 'rows', 'code': 500}
+  special: ['@', '#', '￥', '%', '……', '&', '*', '（', '；']
+
+GetRemindNoteList:
+  Path: "/v3/notesvr/web/getnotes/remind"
+  must_key:
+    - - { 'key': 'remindStartTime', 'code': 500}
+    - - { 'key': 'remindEndTime', 'code': 500}
+    - - { 'key': 'startIndex', 'code': 500}
+    - - { 'key': 'rows', 'code': 500}
+
+GetGroupNote:
+  Path: "/v3/notesvr/web/getnotes/group"
+  must_key:
+    - - { 'key': 'groupId', 'code': 500}
+  special: ['@', '#', '￥', '%', '……', '&', '*', '（', '；']
+
+RecoverRecycleNote:
+  Path: "/v3/notesvr/user/{userid}/notes"
+  must_key:
+    - - { 'key': 'userId', 'code': 500}
+    - - { 'key': 'noteIds', 'code': 500}
