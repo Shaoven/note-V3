@@ -14,7 +14,7 @@ class ReadYaml:
 
     @staticmethod
     def env_yaml():
-        with open((DIR + '\\envConfig\\' + Environ) + '/config.yml', mode="r", encoding="utf-8") as f:
+        with open((DIR + '/envConfig/' + Environ) + '/config.yml', mode="r", encoding="utf-8") as f:
             # 调用load方法加载文件流
             return yaml.load(f, Loader=yaml.FullLoader)
 
